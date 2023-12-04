@@ -4,9 +4,9 @@ import 'package:getx_tdd/features/products/data/model/product_model.dart';
 import 'package:getx_tdd/features/products/data/repository/product_service_impl.dart';
 import 'package:getx_tdd/features/products/domain/repository/product_repository.dart';
 
-class FetchProductUseCase extends UseCase<DataState<ProductModel>> {
+class FetchProductUseCase extends UseCase<DataState<List<UserModel>>> {
   @override
-  Future<DataState<ProductModel>> call() {
+  Future<DataState<List<UserModel>>> call() {
     ProductRepository productRepository = ProductRepositoryImpl();
     return productRepository.getProduct();
   }

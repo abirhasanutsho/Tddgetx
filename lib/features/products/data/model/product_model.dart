@@ -1,34 +1,5 @@
 import 'package:getx_tdd/features/products/domain/entities/product_entity.dart';
 
-class ProductModel extends ProductEntity {
-  ProductModel({
-    required bool? success,
-    required String? message,
-    required int? totalUsers,
-    required int? offset,
-    required int? limit,
-    required List<UserEntity>? users,
-  }) : super(
-          success: success,
-          message: message,
-          totalUsers: totalUsers,
-          offset: offset,
-          limit: limit,
-          users: users,
-        );
-
-  factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
-        success: json["success"],
-        message: json["message"],
-        totalUsers: json["total_users"],
-        offset: json["offset"],
-        limit: json["limit"],
-        users: json["users"] == null
-            ? []
-            : List<UserEntity>.from(
-                json["users"]!.map((x) => UserModel.fromJson(x))),
-      );
-}
 
 class UserModel extends UserEntity {
   UserModel(

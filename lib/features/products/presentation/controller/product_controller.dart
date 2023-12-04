@@ -7,19 +7,19 @@ import '../../data/model/product_model.dart';
 class ProductController extends GetxController {
   RxBool loader = false.obs;
   FetchProductUseCase fetchProductUseCase = FetchProductUseCase();
-  Rx<ProductModel>? productModel;
+  RxList<UserModel> productModel = RxList();
 
   getProduct() async {
     loader.value = true;
     try {
-      var dataState = await fetchProductUseCase();
-
-      if (dataState is DataSuccess && dataState.data != null) {
-        productModel = dataState.data!.obs;
-        loader.value = false;
-      }
+      fetchProductUseCase().then((dataState) {
+        if (dataState is DataSuccess && dataState.data!.isNotEmpty) {
+          productModel.addAll(dataState.data!);
+          loader.value = false;
+        }
+      });
     } catch (error) {
-      // Handle error
+      loader.value = false;
     } finally {
       loader.value = false;
     }

@@ -19,9 +19,9 @@ class ProductScreen extends GetView<ProductController> {
           return    ListView.builder(
             shrinkWrap: true,
             primary: false,
-            itemCount: controller.productModel!.value.users!.length,
+            itemCount: controller.productModel.length,
             itemBuilder: (_, index) {
-              var data = controller.productModel!.value.users![index];
+              var data = controller.productModel[index];
               return ListTile(
                 title: Text("${data.email}"),
               );

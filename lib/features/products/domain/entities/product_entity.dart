@@ -1,32 +1,5 @@
 import 'package:equatable/equatable.dart';
 
-class ProductEntity extends Equatable {
-  bool? success;
-  String? message;
-  int? totalUsers;
-  int? offset;
-  int? limit;
-  List<UserEntity>? users;
-
-  ProductEntity({
-    this.success,
-    this.message,
-    this.totalUsers,
-    this.offset,
-    this.limit,
-    this.users,
-  });
-
-  @override
-  List<Object?> get props => [
-        success,
-        message,
-        totalUsers,
-        offset,
-        limit,
-        users,
-      ];
-}
 
 class UserEntity extends Equatable {
   int? id;

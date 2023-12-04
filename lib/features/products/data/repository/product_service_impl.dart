@@ -7,9 +7,9 @@ import 'package:getx_tdd/features/products/domain/repository/product_repository.
 
 class ProductRepositoryImpl extends ProductRepository {
   @override
-  Future<DataState<ProductModel>> getProduct() async {
+  Future<DataState<List<UserModel>>> getProduct() async {
     try {
-      ProductModel? productModel = await ProductApiServices.getProductFromAPi();
+      List<UserModel>? productModel = await ProductApiServices.getProductFromAPi();
       return DataSuccess(productModel!);
     } on HttpException catch (e) {
       return DataFailed(e);
